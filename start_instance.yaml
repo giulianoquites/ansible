@@ -1,0 +1,19 @@
+---
+- name: Start instances
+  hosts: localhost
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: /opt/rh/rh-python36/root/usr/bin/python3.6
+    instance_ids:
+      - 'i-xxx'
+      - 'i-xxx'
+    region: us-east-1
+  tasks:
+    - name: Start the sandbox instances
+      ec2:
+        instance_ids: '{{ instance_ids }}'
+        region: '{{ region }}'
+        state: running
+        wait: True
+        vpc_subnet_id: vpc-xxxxx
+        #assign_public_ip: yes
