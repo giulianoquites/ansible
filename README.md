@@ -1,1 +1,8 @@
 # ansible
+# Stop/Start instance AWS with AWX or TOWER.
+
+# Export two: 
+# export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXXXXX  
+# export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+# Install pip install boto boto3
