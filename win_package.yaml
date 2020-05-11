@@ -6,11 +6,7 @@
     win_get_url:
       url: ftp://gitlab.gquites.local/pub/splunkclient.msi
       dest: C:\tmp\splunkclient.msi
-  - name: Install Remote Desktop Connection Manager locally omitting the product_id
-    win_package:
-      path: C:\tmp\splunkclient.msi
-      arguments:
-      - /install
-      - /passive
-      - /norestart
-      state: present
+  - name: Run a command under cmd
+    win_shell: 'msiexec.exe /i C:\tmp\splunkclient.msi RECEIVING_INDEXER="splunk.gquites.local:9997" DEPLOYMENT_SERVER="splunk.gquites.local:8089" AGREETOLICENSE=yes LAUNCHSPLUNK=1 /quiet'
+    args:
+      executable: PowerShell.exe
