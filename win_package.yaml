@@ -1,0 +1,16 @@
+- name:  Install Splunk Universal Forwarder on Windows
+  hosts: "all"
+  gather_facts: false
+  tasks:
+  - name: Download earthrise.jpg to specified path through a proxy server.
+    win_get_url:
+      url: ftp://gitlab.gquites.local/pub/splunkclient.msi
+      dest: C:\tmp\splunkclient.msi
+  - name: Install Remote Desktop Connection Manager locally omitting the product_id
+    win_package:
+      path: C:\tmp\splunkclient.msi
+      arguments:
+      - /install
+      - /passive
+      - /norestart
+      state: present
